@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
 import Button from '../../UI/Button/Button';
 
-import styles from './courseInput.modules.css'
+import styles from './CourseInput.module.css'
 /*const FormControl = styled.div`
 
   margin: 0.5rem 0;
@@ -60,7 +60,7 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`${styles['form-control'] ${!isValid && styles.invalid}`}>
+      <div className={`${styles['form-control']} ${!isValid && styles.invalid}`}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </div>

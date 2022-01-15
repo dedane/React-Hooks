@@ -11,10 +11,7 @@
 }
   
 
-  @media (min-width: 768px){
-    width: auto;
-
-  }
+  
 
   .button:focus {
   outline: none;
