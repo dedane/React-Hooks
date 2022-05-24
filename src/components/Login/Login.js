@@ -11,8 +11,10 @@ const emailReducer = (state, action) => {
   return { value: action.val, isValid: action.val.includes('@') };
 }
 if(action.type === 'INPUT_BLUR') {
+  //We use the state to check the last email state if its valid
   return { value: state.value, isValid: state.value.includes('@') };
 }
+//If the user has not entered any entry the email is invalid
 return { value: '', isValid: false };
 }
 
@@ -24,8 +26,11 @@ const passwordReducer = (state, action) => {
   return { value: action.val, isValid: action.val.trim().length > 6 };
 }
   if(action.type === 'INPUT_BLUR') {
+    //We use the state to check the last password set
   return { value: state.value, isValid: state.value.trim().length > 6 };
 }
+  //If the user has not entered any entry the password is invalid
+
   return { value: '', isValid: false };
 }
 
@@ -63,7 +68,7 @@ const Login = (props) => {
     }
   }, [ emailState, passwordState])  
 
-  
+
   const emailChangeHandler = (event) => {
     dispatchEmail({type: 'USER_INPUT', val: event.target.value})
     //setEnteredEmail(event.target.value);
