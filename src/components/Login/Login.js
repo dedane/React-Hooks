@@ -54,11 +54,16 @@ const Login = (props) => {
     isValid: null
   })
 
+  //Object destructuring
+  //We use it when we want to only get access to a single property of an object
+  const {isValid: emailIsValid} = emailState;
+  const {isValid: passwordIsValid} = passwordState;
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log('Checking form validity')
       setFormIsValid(
-        emailState.isValid && passwordState.isValid
+        emailIsValid && passwordIsValid
       );
     }, 500)
     clearTimeout();
@@ -66,7 +71,12 @@ const Login = (props) => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     }
-  }, [ emailState, passwordState])  
+    /*It is highly advisable to use object destructuring here
+      so as to only get have useEffect run when the propeties emailIsValid and passwordIsValid change
+      and not when the whole object changes
+    */
+    
+  }, [ emailIsValid, passwordIsValid])  
 
 
   const emailChangeHandler = (event) => {
